@@ -1,0 +1,18 @@
+##Below are Do-files to clean data
+
+**Travel Variable**
+gen  travelhx=.
+replace travelhx=1 if travelmode=="plane"
+replace travelhx=1 if travelmode=="cruise"
+replace travelhx=1 if travelmode=="car"
+replace travelhx=0 if travelmode=="none"
+replace travelhx=0 if travelmode=="NA"
+replace travelhx=0 if travelmode=="home"
+tab travelhx
+
+**Age variable**
+gen agecat=.
+replace agecat = 1 if age <=17
+replace agecat = 2 if age >=18 & age <=64
+replace agecat = 3 if age >=65
+tab agecat
